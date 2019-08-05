@@ -22,13 +22,15 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        m_minPosition = SpawnCollider.transform.position - SpawnCollider.bounds.extents;
-        m_maxPosition = SpawnCollider.transform.position + SpawnCollider.bounds.extents;
+        m_minPosition = SpawnCollider.bounds.min;
+        m_maxPosition = SpawnCollider.bounds.max;
+
+        Debug.DrawLine(m_minPosition, m_maxPosition, Color.red, 5f);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKey(KeyCode.K))
         {
             Spawn();
         }
@@ -50,7 +52,7 @@ public class Spawner : MonoBehaviour
 
         bool validPointFound = false;
         int numberOfTries = 0;
-        while (!validPointFound || numberOfTries != 50)
+        while (!validPointFound && numberOfTries != 50)
         {
             // Get a random position in collider bounds
             m_randomPosition.x = Random.Range(m_minPosition.x, m_maxPosition.x);

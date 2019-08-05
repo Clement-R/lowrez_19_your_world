@@ -9988,6 +9988,45 @@ Material:
     - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+--- !u!1 &1337587935 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 705349150626233505, guid: 473e3be37e6944bba9341f26c3d48b9b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3630106111057412263}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &1337587936
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337587935}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 64, y: 64}
+    newSize: {x: 64, y: 64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -12.96, y: -17.9}
+      - {x: -32, y: -25.9}
+      - {x: -32, y: -32}
+      - {x: 32, y: -32}
+      - {x: 32, y: -25.5}
+      - {x: 14.9, y: -18}
+      - {x: -0, y: -16.2}
+      - {x: -8.04, y: -17.18}
 --- !u!1 &1912063109
 GameObject:
   m_ObjectHideFlags: 0
@@ -10035,6 +10074,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlanetMask
+      objectReference: {fileID: 0}
+    - target: {fileID: 705349150626233505, guid: 473e3be37e6944bba9341f26c3d48b9b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8548298010564009584, guid: 473e3be37e6944bba9341f26c3d48b9b,
         type: 3}
@@ -10506,7 +10550,7 @@ PrefabInstance:
         type: 3}
       propertyPath: SpawnCollider
       value: 
-      objectReference: {fileID: 248559666}
+      objectReference: {fileID: 1337587936}
     - target: {fileID: 7352359827132453127, guid: 38a8c9d80c2b6408fb2703987eb7f42f,
         type: 3}
       propertyPath: Prefab

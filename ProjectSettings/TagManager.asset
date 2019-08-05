@@ -48,6 +48,9 @@ TagManager:
   - name: WorldParticles
     uniqueID: 603039863
     locked: 0
+  - name: World
+    uniqueID: 2360810827
+    locked: 0
   - name: Player
     uniqueID: 1678305283
     locked: 0
