@@ -12,7 +12,7 @@ public enum ESpawnType
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private ESpawnType SpawnType;
-    [SerializeField] private RotateAround Prefab;
+    [SerializeField] private PlanetObjectController Prefab;
 
     [Tooltip("Collider in which it'll spawn")]
     [SerializeField] private Collider2D SpawnCollider;
@@ -41,8 +41,7 @@ public class Spawner : MonoBehaviour
         Vector2? position = GetRandomPosition();
         if (position != null)
         {
-            RotateAround rotateAround = Instantiate(Prefab, (Vector2) position, Quaternion.identity);
-            rotateAround.Setup(GameObject.FindGameObjectWithTag("Planet").transform, 0.5f);
+            PlanetObjectController rotateAround = Instantiate(Prefab, (Vector2) position, Quaternion.identity);
         }
     }
 

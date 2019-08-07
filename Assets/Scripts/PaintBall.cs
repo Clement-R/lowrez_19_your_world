@@ -34,8 +34,7 @@ public class PaintBall : MonoBehaviour
     {
         SpriteRenderer decal = Instantiate(m_paintDecal, transform.position, Quaternion.identity);
         decal.color = m_color;
-        RotateAround rot = (RotateAround) decal.gameObject.AddComponent(typeof(RotateAround));
-        rot.Setup(GameObject.FindGameObjectWithTag("Planet").transform, 0.5f);
+        PlanetObjectController rot = (PlanetObjectController) decal.gameObject.AddComponent(typeof(PlanetObjectController));
 
         // Spawn FX and change color
         ParticleSystem particles = Instantiate(m_paintFX, transform.position, m_paintFX.transform.rotation);

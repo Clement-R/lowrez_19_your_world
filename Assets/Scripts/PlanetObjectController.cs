@@ -3,14 +3,15 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-public class RotateAround : MonoBehaviour
+public class PlanetObjectController : MonoBehaviour
 {
-    [SerializeField] private float m_rotSpeed = 0.1f;
-    [SerializeField] private Transform m_around;
+    private float m_rotSpeed = 0.1f;
+    private Transform m_around;
 
-    private void Awake()
+    private void Start()
     {
         transform.parent = null;
+        Setup(ConfigurationManager.Instance.Planet, ConfigurationManager.Instance.RotSpeed);
     }
 
     void Update()
@@ -19,12 +20,9 @@ public class RotateAround : MonoBehaviour
             transform.RotateAround(m_around.transform.position, Vector3.forward, m_rotSpeed);
         else if (Input.GetKey(KeyCode.A))
             transform.RotateAround(m_around.transform.position, Vector3.forward, -m_rotSpeed);
-
-        // transform.Rotate(Vector3.forward, m_rotSpeed);
-        // transform.RotateAround(m_around.transform.position, Vector3.forward, m_rotSpeed)
     }
 
-    public void Setup(Transform p_transform, float p_speed)
+    private void Setup(Transform p_transform, float p_speed)
     {
         m_around = p_transform;
         m_rotSpeed = p_speed;
