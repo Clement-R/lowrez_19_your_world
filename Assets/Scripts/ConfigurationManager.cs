@@ -22,8 +22,17 @@ public class ConfigurationManager : MonoBehaviour
         }
     }
 
+    public Collider2D StarCollider
+    {
+        get
+        {
+            return m_starCollider;
+        }
+    }
+
     [SerializeField] private Transform m_planet;
     [SerializeField] private float m_rotSpeed;
+    [SerializeField] private Collider2D m_starCollider;
 
     private void Awake()
     {

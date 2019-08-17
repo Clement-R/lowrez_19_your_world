@@ -45,3 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_planet: {fileID: 0}
   m_rotSpeed: 0.5
+  m_starCollider: {fileID: 0}

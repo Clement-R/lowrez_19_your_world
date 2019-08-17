@@ -23,16 +23,9 @@ public class PlayerController : MonoBehaviour
                 m_animator.Play("Idle");
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
             if (m_currentInteractable != null)
                 m_currentInteractable.Interact();
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 ballPos = new Vector3(pos.x, pos.y, 0f);
-            Instantiate(m_paint, ballPos, Quaternion.identity);
-        }
 
         /*The FontStruction “Minimal Pixels” (https://fontstruct.com/fontstructions/show/1264958) by “josriley” is licensed under a Creative Commons Attribution Share Alike license (http://creativecommons.org/licenses/by-sa/3.0/). */
         /*Particle font by Eeve https://www.patreon.com/somepx */

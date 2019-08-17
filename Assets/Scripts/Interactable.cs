@@ -6,7 +6,7 @@ using UnityEngine;
 public enum EReward
 {
     HAT = 0,
-    WORLD = 1
+    ITEM = 1
 }
 
 public enum EHat
@@ -21,6 +21,8 @@ public struct RewardData
 {
     public EReward Reward;
     public EHat Hat;
+    public MusicManager.ETrack Track;
+    public Item Item;
 }
 
 public class Interactable : MonoBehaviour

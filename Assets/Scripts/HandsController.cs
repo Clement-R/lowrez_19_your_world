@@ -5,8 +5,15 @@ using UnityEngine;
 
 public class HandsController : MonoBehaviour
 {
+    public static HandsController Instance;
+
     [SerializeField] private Transform m_leftHand;
+    [SerializeField] private GameObject m_leftArm;
     [SerializeField] private Transform m_rightHand;
+    [SerializeField] private GameObject m_rightArm;
+
+    private Item m_rightItem = null;
+    private Item m_leftItem = null;
 
     private EHand m_last = EHand.NONE;
 
@@ -17,22 +24,27 @@ public class HandsController : MonoBehaviour
         RIGHT = 2
     }
 
-    [SerializeField] private GameObject[] m_objects;
-    private void DebugGrab()
+    private void Awake()
     {
-        GameObject go = Instantiate(m_objects[Random.Range(0, m_objects.Length)]);
-        GrabNewItem(go);
+        Instance = this;
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            DebugGrab();
+            if (m_leftItem != null)
+                m_leftItem.Use();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (m_rightItem != null)
+                m_rightItem.Use();
         }
     }
 
-    public void GrabNewItem(GameObject p_item)
+    public void GrabNewItem(Item p_item)
     {
         Transform hand = GetNextHand();
         if (!IsHandFree(hand))
@@ -47,7 +59,13 @@ public class HandsController : MonoBehaviour
         p_item.transform.parent = hand;
         p_item.transform.localPosition = Vector2.zero;
 
-        //TODO: Show arms if objects
+        // Set item
+        if (m_last == EHand.LEFT)
+            m_leftItem = p_item;
+        else
+            m_rightItem = p_item;
+
+        UpdateArms();
     }
 
     private bool IsHandFree(Transform p_hand)
@@ -72,5 +90,11 @@ public class HandsController : MonoBehaviour
             m_last = EHand.LEFT;
             return m_leftHand;
         }
+    }
+
+    private void UpdateArms()
+    {
+        m_leftArm.SetActive(!IsHandFree(m_leftHand));
+        m_rightArm.SetActive(!IsHandFree(m_rightHand));
     }
 }

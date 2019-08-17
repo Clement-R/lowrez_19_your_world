@@ -16,7 +16,13 @@ public class RewardCollector : MonoBehaviour
     {
         if (p_reward.Reward == EReward.HAT)
         {
+            MusicManager.Instance.UnlockTrack(p_reward.Track);
             m_hatManager.ChangeHat(p_reward.Hat);
+        }
+        else if (p_reward.Reward == EReward.ITEM)
+        {
+            var go = Instantiate(p_reward.Item);
+            HandsController.Instance.GrabNewItem(go);
         }
     }
 }

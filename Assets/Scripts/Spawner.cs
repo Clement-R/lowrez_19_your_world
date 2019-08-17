@@ -6,7 +6,6 @@ using UnityEngine;
 public enum ESpawnType
 {
     STAR = 0,
-
 }
 
 public class Spawner : MonoBehaviour
@@ -14,26 +13,18 @@ public class Spawner : MonoBehaviour
     [SerializeField] private ESpawnType SpawnType;
     [SerializeField] private PlanetObjectController Prefab;
 
-    [Tooltip("Collider in which it'll spawn")]
-    [SerializeField] private Collider2D SpawnCollider;
-
     private Vector2 m_minPosition;
     private Vector2 m_maxPosition;
+    private Collider2D SpawnCollider;
 
     private void Start()
     {
+        SpawnCollider = ConfigurationManager.Instance.StarCollider;
+
         m_minPosition = SpawnCollider.bounds.min;
         m_maxPosition = SpawnCollider.bounds.max;
 
         Debug.DrawLine(m_minPosition, m_maxPosition, Color.red, 5f);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.K))
-        {
-            Spawn();
-        }
     }
 
     public void Spawn()
