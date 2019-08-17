@@ -7,8 +7,11 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Animator m_animator;
     [SerializeField] private PaintBall m_paint;
+    [SerializeField] private AudioClip[] m_walkSounds;
+    [SerializeField] private AudioClip m_interact;
 
     private Interactable m_currentInteractable = null;
+    private int m_walkIndex = 0;
 
     void Update()
     {
@@ -20,21 +23,24 @@ public class PlayerController : MonoBehaviour
         else
         {
             if (!m_animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+            {
                 m_animator.Play("Idle");
+                m_walkIndex = 0;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.F))
+        {
             if (m_currentInteractable != null)
+            {
                 m_currentInteractable.Interact();
-
-        /*The FontStruction “Minimal Pixels” (https://fontstruct.com/fontstructions/show/1264958) by “josriley” is licensed under a Creative Commons Attribution Share Alike license (http://creativecommons.org/licenses/by-sa/3.0/). */
-        /*Particle font by Eeve https://www.patreon.com/somepx */
+                SFXManager.Instance.PlaySound(m_interact);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D p_collider)
     {
-        Debug.Log("Enter trigger " + p_collider.name);
-
         Interactable interactable = p_collider.GetComponent<Interactable>();
         if (interactable != null && m_currentInteractable == null)
         {
@@ -44,12 +50,19 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D p_collider)
     {
-        Debug.Log("Exit trigger " + p_collider.name);
-
         Interactable interactable = p_collider.GetComponent<Interactable>();
         if (interactable != null && interactable == m_currentInteractable)
         {
             m_currentInteractable = null;
         }
+    }
+
+    public void PlayWalkSound()
+    {
+        SFXManager.Instance.PlaySound(m_walkSounds[m_walkIndex]);
+        m_walkIndex++;
+
+        if (m_walkIndex > m_walkSounds.Length - 1)
+            m_walkIndex = 0;
     }
 }

@@ -10,6 +10,7 @@ public class PaintBall : MonoBehaviour
     [SerializeField] private ParticleSystem m_paintFX = null;
     [SerializeField] private float m_minTimeToLive = 0f;
     [SerializeField] private float m_maxTimeToLive = 0.5f;
+    [SerializeField] private AudioClip m_dropSound;
 
     private Color m_color;
 
@@ -42,7 +43,7 @@ public class PaintBall : MonoBehaviour
         main.startColor = m_color;
         particles.Play();
 
-        //TODO: Play sound
+        SFXManager.Instance.PlaySound(m_dropSound);
 
         Destroy(gameObject);
     }

@@ -58,6 +58,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -97,6 +98,9 @@ MonoBehaviour:
     type: 3}
   m_spawnPosition: {fileID: 5575228771911056592}
   m_baseForce: {x: 12.5, y: 50}
+  m_useSounds:
+  - {fileID: 8300000, guid: 4f67770f2202ea74f90ea9a89247e1a8, type: 3}
+  - {fileID: 8300000, guid: 69db207a9323e8042ba56eca84d2da81, type: 3}
 --- !u!1 &6265691313750858715
 GameObject:
   m_ObjectHideFlags: 0

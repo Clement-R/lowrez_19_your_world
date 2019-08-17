@@ -59,6 +59,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -95,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_spawner: {fileID: 3667551777951506422}
+  m_spawnSound: {fileID: 8300000, guid: c1a801f5898e6b74e9142cb184c89231, type: 3}
 --- !u!114 &3667551777951506422
 MonoBehaviour:
   m_ObjectHideFlags: 0

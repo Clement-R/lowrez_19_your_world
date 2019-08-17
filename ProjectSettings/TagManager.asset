@@ -51,6 +51,9 @@ TagManager:
   - name: World
     uniqueID: 2360810827
     locked: 0
+  - name: NPC
+    uniqueID: 3938368247
+    locked: 0
   - name: Player
     uniqueID: 1678305283
     locked: 0

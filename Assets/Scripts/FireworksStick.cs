@@ -8,32 +8,13 @@ public class FireworksStick : Item
 {
     [SerializeField] private Transform m_spawnPosition;
     [SerializeField] private GameObject[] m_prefabs;
+    [SerializeField] private AudioClip[] m_useSounds;
+    [SerializeField] private AudioClip[] m_explosionSounds;
 
     private Dictionary<string, List<GameObject>> m_pools = new Dictionary<string, List<GameObject>>();
 
-    private void Start()
-    {
-        // foreach (var prefab in m_prefabs)
-        // {
-        //     List<GameObject> pool = new List<GameObject>();
-
-        //     for (int i = 0; i < 50; i++)
-        //     {
-        //         var go = Instantiate(prefab, Vector2.zero, Quaternion.identity);
-        //         go.SetActive(false);
-        //         pool.Add(go);
-        //     }
-
-        //     m_pools.Add(prefab.name, pool);
-        // }
-    }
-
     public override void Use()
     {
-        // string name = m_prefabs[Random.Range(0, m_prefabs.Length)].name;
-        // var go = m_pools[name].FirstOrDefault(e => e.activeInHierarchy == false);
-        // go.transform.position = m_spawnPosition.position;
-
         var go = m_prefabs[Random.Range(0, m_prefabs.Length)];
 
         Instantiate(
@@ -42,5 +23,14 @@ public class FireworksStick : Item
             go.transform.rotation,
             null
         );
+
+        SFXManager.Instance.PlaySound(m_useSounds[Random.Range(0, m_useSounds.Length)]);
+        StartCoroutine(_PlayExplosionSound());
+    }
+
+    private IEnumerator _PlayExplosionSound()
+    {
+        yield return new WaitForSeconds(2.5f);
+        SFXManager.Instance.PlaySound(m_explosionSounds[Random.Range(0, m_explosionSounds.Length)]);
     }
 }

@@ -15,6 +15,7 @@ public class HatManager : MonoBehaviour
 {
     [SerializeField] private ParticleSystem m_particles;
     [SerializeField] private List<HatToItem> m_hats;
+    [SerializeField] private AudioClip m_interact;
 
     private GameObject m_current = null;
 
@@ -36,5 +37,7 @@ public class HatManager : MonoBehaviour
         m_current = hatData.Item;
 
         m_particles.Play();
+
+        SFXManager.Instance.PlaySound(m_interact);
     }
 }

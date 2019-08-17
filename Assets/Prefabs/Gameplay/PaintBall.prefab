@@ -59,6 +59,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -104,6 +105,7 @@ MonoBehaviour:
     type: 3}
   m_minTimeToLive: 0
   m_maxTimeToLive: 0.35
+  m_dropSound: {fileID: 8300000, guid: a8a484ff0d1f23d4b82ebe9cebd4f0e6, type: 3}
 --- !u!58 &2262079208582676825
 CircleCollider2D:
   m_ObjectHideFlags: 0

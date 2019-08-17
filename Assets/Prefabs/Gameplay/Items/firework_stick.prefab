@@ -88,6 +88,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -129,3 +130,9 @@ MonoBehaviour:
   - {fileID: 5237214916403542932, guid: 171d84f3eb0014246b9c0ef76f8309dd, type: 3}
   - {fileID: 4139774508273845308, guid: 52756ca5a57824e1990edee4b678c079, type: 3}
   - {fileID: 7714998467331891180, guid: 19f54f649cd454594927625fc459fe66, type: 3}
+  m_useSounds:
+  - {fileID: 8300000, guid: 41bd063ff008ed3419d2514a671df1dc, type: 3}
+  - {fileID: 8300000, guid: ffcdf7a1310d42e49a461e359a692711, type: 3}
+  m_explosionSounds:
+  - {fileID: 8300000, guid: c8a2f1e2465c3124f8b55b14ae223b47, type: 3}
+  - {fileID: 8300000, guid: d6e68b7a7fde1c34cb680510c30282f8, type: 3}
